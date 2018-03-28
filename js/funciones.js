@@ -15,7 +15,7 @@ $(document).ready(function(){
   		   $("#dynamic").css("width","0%").attr("aria-valuenow",0);
   			$.ajax({
                 // la URL para la petición
-                url : 'https://www.datos.gov.co/resource/gze3-pa7y.json',
+                url : 'https://www.datos.gov.co/resource/m5vp-ypu6.json',
                 // especifica si será una petición POST o GET
                 type : 'GET',
                 // el tipo de información que se espera de respuesta
@@ -27,12 +27,13 @@ $(document).ready(function(){
                 var tr;
 
 				for (var i = 0; i < json.length; i++) {
-					tr = $('<tr>');
-					tr.append("<td>" + json[i].ano + "</td>");
-					tr.append("<td>" + json[i].autor + "</td>");
-					tr.append("<td>" + json[i].ciudad + "</td>");
-					tr.append("<td>" + json[i].column0 + "</td>");
-					tr.append("<td>" + json[i].editor + "</td>");
+					   tr = $('<tr>');
+             tr.append("<td>"+(i+1)+"</td>");
+					   tr.append("<td>" + json[i].entidad_bancaria + "</td>");
+					   tr.append("<td>" + json[i].sitio_web + "</td>");
+             tr.append("<td>" + json[i].direccion + "</td>");
+					   tr.append("<td>" + json[i].telefono + "</td>");
+					   tr.append("<td>"+json[i].georeferenciaci_n.coordinates+"</td>");
 					$('#mostrar').append(tr);
 						        
 				    }  
@@ -42,7 +43,7 @@ $(document).ready(function(){
                 // son pasados como argumentos a la función
                 // el objeto de la petición en crudo y código de estatus de la petición
                 error : function(xhr, status) {
-                    alert('ha ocurrido un error');
+                    console.log('ha ocurrido un error');
                 },
                      
                 // código a ejecutar sin importar si la petición falló o no
