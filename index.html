@@ -17,21 +17,28 @@
     		<span id="current-progress"></span>
 		</div>
 	</div>
-	<table class="table table-bordered" id="mostrar" >
+	<table class="table table-bordered table-hover" id="mostrar" >
+    	<thead>
     	<tr>
-    		<th>ID</th>
-			<th>Entidad Bancaria</th>
-		    <th>Sitio Web</th>
-		    <th>Direccion</th>
-			<th>Telefono</th>
+    		<th>Id</th>
+			<th># de muestras</th>
+		    <th>Promedio</th>
+		    <th>Año</th>
+			<th>Municipio</th>
+			<th>Departamento</th>
 			<th>Localizacion</th>
 		</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
     </table>
 </div>
 	<div id="mapa"></div>
 	<canvas id="grafico"></canvas>
 
 	<script src="js/jquery.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="js/chart.bundle.js"></script>
 	<script src="js/funciones.js"></script>
 

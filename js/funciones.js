@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  var locations=[],nombres_=[],promedio_=[],color_=[];
 	$(".progress").css("height","20px").hide();
 	$("#dynamic").css("height","20px");
 	
@@ -8,14 +9,14 @@ $(document).ready(function(){
   	    var interval = setInterval(function() { current_progress += 1;
       	$("#dynamic").css("width", current_progress + "%").attr("aria-valuenow", current_progress)
       	.text(current_progress + "% Complete");
-      	if (current_progress >= 102)
+      	if (current_progress >= 100)
           clearInterval(interval);
-      	if(current_progress>100){
+      	if(current_progress==100){
   		   $(".progress").hide();
   		   $("#dynamic").css("width","0%").attr("aria-valuenow",0);
   			$.ajax({
                 // la URL para la petición
-                url : 'https://www.datos.gov.co/resource/m5vp-ypu6.json',
+                url : 'https://www.datos.gov.co/resource/rzdg-k539.json?$limit=500',
                 // especifica si será una petición POST o GET
                 type : 'GET',
                 // el tipo de información que se espera de respuesta
@@ -29,14 +30,25 @@ $(document).ready(function(){
 				for (var i = 0; i < json.length; i++) {
 					   tr = $('<tr>');
              tr.append("<td>"+(i+1)+"</td>");
-					   tr.append("<td>" + json[i].entidad_bancaria + "</td>");
-					   tr.append("<td>" + json[i].sitio_web + "</td>");
-             tr.append("<td>" + json[i].direccion + "</td>");
-					   tr.append("<td>" + json[i].telefono + "</td>");
-					   tr.append("<td>"+json[i].georeferenciaci_n.coordinates+"</td>");
-					$('#mostrar').append(tr);
-						        
-				    }  
+					   tr.append("<td>" + json[i].numero_de_muestras + "</td>");
+					   tr.append("<td>" + json[i].promedio_irca + "</td>");
+             tr.append("<td>" + json[i].ano + "</td>");
+					   tr.append("<td>" + json[i].municipio + "</td>");
+					   tr.append("<td>"+json[i].departamento+"</td>");
+             if(json[i].localizacion==null){
+                tr.append("<td>Desconocida</td>");
+              }else{
+                tr.append("<td>("+json[i].localizacion.latitude+","+json[i].localizacion.longitude+")</td>");
+                locations.push(["Promedio IRCA: "+json[i].promedio_irca,
+                        json[i].localizacion.latitude,
+                        json[i].localizacion.longitude,1]);
+              }
+					   $('#mostrar').append(tr);
+						 //locations.push(["Promedio IRCA: "+field.promedio_irca,
+                        //json[i].georeferenciaci_n.latitude,
+                        //json[i].georeferenciaci_n.longitude,1]);        
+				    
+            }  
 
                	},           
                 // código a ejecutar si la petición falla;
@@ -52,4 +64,30 @@ $(document).ready(function(){
                 }
                 })}}, 60);
 	});
+
 });
+
+function generarGrafica(){
+      var ctx = document.getElementById("grafico").getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: nombres_,
+              datasets: [{
+                  label: 'Promedio de citios bancarios',
+                  data: promedio_,
+                  backgroundColor: color_,
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+    }
