@@ -1,5 +1,7 @@
+var locations=[],nombres_=[],promedio_=[],color_=[];
+
 $(document).ready(function(){
-  var locations=[],nombres_=[],promedio_=[],color_=[];
+  
 	$(".progress").css("height","20px").hide();
 	$("#dynamic").css("height","20px");
 	
@@ -16,7 +18,7 @@ $(document).ready(function(){
   		   $("#dynamic").css("width","0%").attr("aria-valuenow",0);
   			$.ajax({
                 // la URL para la petición
-                url : 'https://www.datos.gov.co/resource/rzdg-k539.json?$limit=500',
+                url : 'https://www.datos.gov.co/resource/rzdg-k539.json?$limit=250',
                 // especifica si será una petición POST o GET
                 type : 'GET',
                 // el tipo de información que se espera de respuesta
@@ -46,9 +48,17 @@ $(document).ready(function(){
 					   $('#mostrar').append(tr);
 						 //locations.push(["Promedio IRCA: "+field.promedio_irca,
                         //json[i].georeferenciaci_n.latitude,
-                        //json[i].georeferenciaci_n.longitude,1]);        
+                        //json[i].georeferenciaci_n.longitude,1]);
+              nombres_.push("id: "+json[i].id);
+              promedio_.push(json[i].promedio_irca);
+              color_.push('rgba('+Math.round(Math.random()*255)+
+                    ','+Math.round(Math.random()*255)+
+                    ','+Math.round(Math.random()*255)+', 0.5)');        
 				    
-            }  
+            }
+            generarGrafica();
+         // $("#mapa").attr("style","width: 100%; height: 400px;");
+          $("#grafico").attr("style","width: 100%; height: 400px;");  
 
                	},           
                 // código a ejecutar si la petición falla;
