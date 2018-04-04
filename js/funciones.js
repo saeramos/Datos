@@ -6,7 +6,18 @@ $(document).ready(function(){
 	$("#dynamic").css("height","20px");
 	
 	$("#btn-mostrar").click(function(){
-		$(".progress").show();
+		$.ajax({
+    type: "get",
+    url: 'datos1.html',
+    dataType: 'html',
+    success: function (data, ts) {
+        window.setTimeout(function () {
+            $("#contenido").html('');
+            $("#contenido").html(data);
+        }, 500);
+    }
+    });
+    $(".progress").show();
 		var current_progress = 0;
   	    var interval = setInterval(function() { current_progress += 1;
       	$("#dynamic").css("width", current_progress + "%").attr("aria-valuenow", current_progress)
@@ -71,7 +82,8 @@ $(document).ready(function(){
                             
                 }
                 })}}, 60);
-	});
+	});//Btn-mostrar
+
 
 });
 

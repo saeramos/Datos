@@ -25,7 +25,7 @@
         <div class="collapse d-md-flex bg-light pt-4 " id="sidebar">
             <ul class="nav flex-column flex-nowrap">
                 <li class="nav-item"><a class="nav-link" id="btn-mostrar">Datos 1</a></li>
-                <li class="nav-item"><a class="nav-link" >Datos 2</a></li>
+                <li class="nav-item"><a class="nav-link" id="datos2">Datos 2</a></li>
             </ul>
         </div>
     </div>
@@ -37,32 +37,16 @@
 		</div>
 	
 	</div>
-	<div class="pt-4 col-md-2">
-	<table class="table table-bordered table-hover" id="mostrar" >
-    	<thead>
-    	<tr>
-    		<th>Id</th>
-			<th># de muestras</th>
-		    <th>Promedio</th>
-		    <th>Año</th>
-			<th>Municipio</th>
-			<th>Departamento</th>
-			<th>Localizacion</th>
-		</tr>
-		</thead>
-		<tbody>
-			
-		</tbody>
-    </table>
+	<div class="pt-4 col-md-2" id="contenido">
+	
     </div>
 	</div>
-	</div>
-	<div class="col-md-4">
-		<canvas id="grafico"></canvas>
-	</div>
+	
+	
+		<canvas class="col-md-4 "id="grafico"></canvas>
+	
 	<div class="col-md-4" id="mapa"></div>
-	
-	
+	</div>
 	</div>
     <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
     	<div class="container text-center text-md-left">
@@ -79,7 +63,7 @@
 	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="js/chart.bundle.js"></script>
-	<script src="js/funciones.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
 
 
 
