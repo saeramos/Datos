@@ -8,8 +8,15 @@
 	
 </head>
 <body>
-	<p></p>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  	<ul class="navbar-nav">
+    	<li class="nav-item active">
+      		<a class="nav-link" href="#"><img src="img/logo.png" alt="" height="30"></a>
+    	</li>
+  	</ul>
+</nav>
 	<div class="container">
+
 	<input type="button" class="btn btn-info" id="btn-mostrar" value="mostrar">
 	<p></p>
 	<div class="progress" >
@@ -33,11 +40,24 @@
 			
 		</tbody>
     </table>
-</div>
+
 	<div id="mapa"></div>
 	<canvas id="grafico"></canvas>
-
+	</div>
+	
+    <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
+    	<div class="container text-center text-md-left">
+        <div class="row">
+    <div class="footer-copyright py-3 text-center">
+        © 2018 Copyright:
+        <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> MDBootstrap.com </a>
+    </div>
+	</footer>
+<!--/.Footer-->
+                      
 	<script src="js/jquery.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="js/chart.bundle.js"></script>
 	<script src="js/funciones.js"></script>

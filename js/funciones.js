@@ -18,7 +18,7 @@ $(document).ready(function(){
   		   $("#dynamic").css("width","0%").attr("aria-valuenow",0);
   			$.ajax({
                 // la URL para la petición
-                url : 'https://www.datos.gov.co/resource/rzdg-k539.json?$limit=250',
+                url : 'https://www.datos.gov.co/resource/rzdg-k539.json?$limit=20',
                 // especifica si será una petición POST o GET
                 type : 'GET',
                 // el tipo de información que se espera de respuesta
@@ -46,9 +46,6 @@ $(document).ready(function(){
                         json[i].localizacion.longitude,1]);
               }
 					   $('#mostrar').append(tr);
-						 //locations.push(["Promedio IRCA: "+field.promedio_irca,
-                        //json[i].georeferenciaci_n.latitude,
-                        //json[i].georeferenciaci_n.longitude,1]);
               nombres_.push("id: "+json[i].id);
               promedio_.push(json[i].promedio_irca);
               color_.push('rgba('+Math.round(Math.random()*255)+
