@@ -8,15 +8,25 @@
 	
 </head>
 <body>
+<div class="container-fluid">
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   	<ul class="navbar-nav">
     	<li class="nav-item active">
-      		<a class="nav-link" href="#"><img src="img/logo.png" alt="" height="30"></a>
+      		<a class="nav-link" href="#"><img src="img/logo.png" alt="" height="30"> Datos</a>
     	</li>
   	</ul>
 </nav>
-	<div class="container">
-
+	
+    <div class="row h-100">
+    	<div class="bg-light pt-5 col-2">	
+        <div class="collapse d-md-flex bg-light pt-4 h-100" id="sidebar">
+            <ul class="nav flex-column flex-nowrap">
+                <li class="nav-item"><a class="nav-link" href="#">Datos 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Datos 2</a></li>
+            </ul>
+        </div>
+    </div>
+	<div class="col-md-6 pt-4">
 	<input type="button" class="btn btn-info" id="btn-mostrar" value="mostrar">
 	<p></p>
 	<div class="progress" >
@@ -24,6 +34,7 @@
     		<span id="current-progress"></span>
 		</div>
 	</div>
+	<div class="pt-4 col-md-6">
 	<table class="table table-bordered table-hover" id="mostrar" >
     	<thead>
     	<tr>
@@ -40,9 +51,12 @@
 			
 		</tbody>
     </table>
-
+    </div>
+	</div>
+</div>
 	<div id="mapa"></div>
 	<canvas id="grafico"></canvas>
+	</div>
 	</div>
 	
     <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
