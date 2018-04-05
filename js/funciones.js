@@ -9,8 +9,9 @@ $(document).ready(function(){
 		$.ajax({
     type: "get",
     url: 'datos1.html',
-    dataType: 'html',
+    // dataType: 'html',
     success: function (data, ts) {
+      console.log(data);
         window.setTimeout(function () {
             $("#contenido").html('');
             $("#contenido").html(data);
@@ -65,8 +66,8 @@ $(document).ready(function(){
 				    
             }
             generarGrafica();
-            generarMapa();
-          $("#mapa").attr("style","width: 100%; height: 400px;");
+           // generarMapa();
+         // $("#mapa").attr("style","width: 100%; height: 400px;");
           $("#grafico").attr("style","width: 100%; height: 200px;");  
 
                	},           
