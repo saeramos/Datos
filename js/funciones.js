@@ -1,23 +1,12 @@
 var locations=[],nombres_=[],promedio_=[],color_=[];
 
 $(document).ready(function(){
-  
-	$(".progress").css("height","20px").hide();
+  var tabla1 = $(".tabla1");
+	tabla1.hide();
+  $(".progress").css("height","20px").hide();
 	$("#dynamic").css("height","20px");
 	
 	$("#btn-mostrar").click(function(){
-		$.ajax({
-    type: "get",
-    url: 'datos1.html',
-    // dataType: 'html',
-    success: function (data, ts) {
-      console.log(data);
-        window.setTimeout(function () {
-            $("#contenido").html('');
-            $("#contenido").html(data);
-        }, 500);
-    }
-    });
     $(".progress").show();
 		var current_progress = 0;
   	    var interval = setInterval(function() { current_progress += 1;
@@ -26,7 +15,8 @@ $(document).ready(function(){
       	if (current_progress >= 100)
           clearInterval(interval);
       	if(current_progress==100){
-  		   $(".progress").hide();
+  		   tabla1.show();
+         $(".progress").hide();
   		   $("#dynamic").css("width","0%").attr("aria-valuenow",0);
   			$.ajax({
                 // la URL para la petición
@@ -57,6 +47,7 @@ $(document).ready(function(){
                         json[i].localizacion.latitude,
                         json[i].localizacion.longitude,1]);
               }
+              
 					   $('#mostrar').append(tr);
               nombres_.push("id: "+json[i].id);
               promedio_.push(json[i].promedio_irca);
@@ -68,7 +59,7 @@ $(document).ready(function(){
             generarGrafica();
            // generarMapa();
          // $("#mapa").attr("style","width: 100%; height: 400px;");
-          $("#grafico").attr("style","width: 100%; height: 200px;");  
+          //$("#grafico").attr("style","width: 100%; height: 200px;");  
 
                	},           
                 // código a ejecutar si la petición falla;

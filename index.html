@@ -21,13 +21,16 @@
 	<div class="container">
     <div class="row">
 
-    	<div class="bg-light pt-5 col-1">	
-        <div class="collapse d-md-flex bg-light pt-4 " id="sidebar">
-            <ul class="nav flex-column flex-nowrap">
-                <li class="nav-item"><a class="nav-link" id="btn-mostrar">Datos 1</a></li>
-                <li class="nav-item"><a class="nav-link" id="datos2">Datos 2</a></li>
-            </ul>
+    	<div class=" pt-5 col-3">	
+        <div class="card border-dark mb-4" style="max-width: 18rem;">
+  		<div class="card-header">Menu</div>
+  		<div class="card-body text-dark">
+    	<div class="list-group">
+    		<li class="list-group-item"><a  id="btn-mostrar">Datos 1</a></li>
+            <li class="list-group-item"><a id="datos2">Datos 2</a></li>
         </div>
+  	</div>
+	</div>     
     </div>
 	<div class="col-md-2 pt-2">
 	<p></p>
@@ -38,11 +41,26 @@
 	
 	</div>
 	<div class="pt-4 col-md-6" id="contenido">
-	
+		<table class="table table-bordered table-hover tabla1" id="mostrar" >
+    	<thead>
+    	<tr>
+    		<th>Id</th>
+			<th># de muestras</th>
+		    <th>Promedio</th>
+		    <th>Año</th>
+			<th>Municipio</th>
+			<th>Departamento</th>
+			<th>Localizacion</th>
+		</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+    </table>
     </div>
 	</div>
 	<div class="col-md-4">
-		<canvas  id="grafico"></canvas>
+		<!--canvas  id="grafico"></canvas-->
 	</div>
 	<!--div class="col-md-4" id="mapa"></div-->
 	</div>
@@ -51,15 +69,14 @@
     	<div class="container text-center text-md-left">
         <div class="row">
     <div class="footer-copyright py-3 text-center">
-        © 2018 Copyright:
-        <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> MDBootstrap.com </a>
+       Copyright © 2018 
+       
     </div>
 	</footer>
 <!--/.Footer-->
                       
 	<script src="js/jquery.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="js/chart.bundle.js"></script>
 	<script type="text/javascript" src="js/funciones.js"></script>
